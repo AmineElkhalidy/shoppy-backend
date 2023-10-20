@@ -9,13 +9,6 @@ import clientPromise from "@/lib/mongodb";
 // Google Provider
 import GoogleProvider from "next-auth/providers/google";
 
-const adminEmails = [
-  "a.amineelkhalidy@gmail.com",
-  "amineelkhalidy.a@gmail.com",
-  "elkhalidyamine.a@gmail.com",
-  "bynameofallah1@gmail.com",
-];
-
 export const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -23,12 +16,12 @@ export const authOptions = {
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
     }),
-    // ...add more providers here
   ],
+  // Will be responsible for re-using an active connection to db without making a request again!
   adapter: MongoDBAdapter(clientPromise),
   callbacks: {
     session: ({ session, token, user }) => {
-      if (adminEmails.includes(session?.user?.email)) {
+      if (session?.user?.email) {
         return session;
       } else {
         return false;
@@ -39,12 +32,12 @@ export const authOptions = {
 
 export default NextAuth(authOptions);
 
-export async function isAdminRequest(req, res) {
-  const session = await getServerSession(req, res, authOptions);
+// export async function isAdminRequest(req, res) {
+//   const session = await getServerSession(req, res, authOptions);
 
-  if (!adminEmails.includes(session?.user?.email)) {
-    res.status(401);
-    res.end();
-    throw Error("You are not an admin!");
-  }
-}
+//   if (!adminEmails.includes(session?.user?.email)) {
+//     res.status(401);
+//     res.end();
+//     throw Error("You are not an admin!");
+//   }
+// }

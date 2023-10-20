@@ -41,9 +41,9 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  const fetchProducts = () => {
+  const fetchProducts = async () => {
     setLoading(true);
-    axios.get("/api/products").then((response) => {
+    await axios.get("/api/products").then((response) => {
       setProducts(response.data);
       setLoading(false);
     });

@@ -44,10 +44,11 @@ const Categories = () => {
     fetchCategories();
   }, []);
 
-  const fetchCategories = () => {
+  const fetchCategories = async () => {
     setLoading(true);
-    axios.get("/api/categories").then((response) => {
+    await axios.get("/api/categories").then((response) => {
       setCategories(response.data);
+
       setLoading(false);
     });
   };

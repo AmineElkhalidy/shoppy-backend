@@ -5,6 +5,7 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import { Link } from "next/link";
 
 export default function Home() {
+  // rename data to session
   const { data: session } = useSession();
 
   return (
