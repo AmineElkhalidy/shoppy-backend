@@ -1,8 +1,4 @@
-// Authentication functionalities
 import { signIn, signOut, useSession } from "next-auth/react";
-
-// Next Components
-import { Link } from "next/link";
 
 export default function Home() {
   // rename data to session
@@ -11,7 +7,14 @@ export default function Home() {
   return (
     <div className="p-4">
       <div className="flex items-center">
-        <h2 className="text-2xl font-semibold">Dashboard</h2>
+        <div>
+          <h1 className="text-4xl font-semibold">
+            Welcome Back,{" "}
+            <span className="text-orange-400">{session?.user?.name}</span>
+          </h1>
+
+          <h2 className="text-3xl font-medium mt-4">Dashboard</h2>
+        </div>
       </div>
     </div>
   );
