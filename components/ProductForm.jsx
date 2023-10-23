@@ -151,7 +151,6 @@ const ProductForm = ({
 
   return (
     <form
-      action="#"
       className="lg:w-[60%] bg-white max-w-xl mx-auto rounded-md shadow-md"
       onSubmit={submitHandler}
     >

@@ -88,8 +88,8 @@ const SidebarNavigation = ({ className, setIsCollapsed }) => {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <aside className="min-h-screen">
-      <Sidebar backgroundColor="#131921" className={`h-screen ${className}`}>
+    <aside className="h-screen fixed top-0 left-0 z-50">
+      <Sidebar backgroundColor="#131921" className="min-h-screen h-full">
         {/* Logo & Toggler */}
         <div
           className="p-4 border-b border-[#3B4149] mb-6"

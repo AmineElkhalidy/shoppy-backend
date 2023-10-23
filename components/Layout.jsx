@@ -45,12 +45,9 @@ const Layout = ({ children }) => {
   return (
     <div className="relative w-full bg-gray-200 min-h-screen flex">
       {/* Sidebar */}
-      <SidebarNavigation
-        setIsCollapsed={setIsCollapsed}
-        className="fixed top-0 left-0 z-50"
-      />
+      <SidebarNavigation setIsCollapsed={setIsCollapsed} />
 
-      <div className="grow">
+      <div className={`grow ${isCollapsed ? "pl-[5rem]" : "pl-[15.5rem]"}`}>
         <Header session={session} />
         {children}
       </div>

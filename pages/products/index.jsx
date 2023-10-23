@@ -73,7 +73,7 @@ const Products = () => {
     <>
       <div className="p-4">
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold">Products Grid</h2>
+          <h2 className="text-3xl font-semibold">Products Grid</h2>
           <Link
             className="px-6 py-3 bg-mainColor text-white rounded-lg"
             href="/products/new"
