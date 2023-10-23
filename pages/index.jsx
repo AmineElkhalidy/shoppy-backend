@@ -10,7 +10,7 @@ export default function Home() {
         <div>
           <h1 className="text-4xl font-semibold">
             Welcome Back,{" "}
-            <span className="text-orange-400">{session?.user?.name}</span>
+            <span className="text-orange-500">{session?.user?.name}</span>
           </h1>
 
           <h2 className="text-3xl font-medium mt-4">Dashboard</h2>
