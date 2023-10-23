@@ -1,15 +1,11 @@
 import { Product } from "@/models/product";
 import { mongooseConnection } from "@/lib/mongoose";
-import { isAdminRequest } from "./auth/[...nextauth]";
 
 export default async function handler(request, response) {
   const { method } = request;
 
   // Connecting to db
   await mongooseConnection();
-
-  // Check if the user is logged in
-  await isAdminRequest(request, response);
 
   if (method === "GET") {
     if (request.query?.id)
@@ -46,6 +42,4 @@ export default async function handler(request, response) {
     if (request.query?.id) await Product.deleteOne({ _id: request.query.id });
     response.json("Successfully deleted");
   }
-
-  return response.json(request.method);
 }

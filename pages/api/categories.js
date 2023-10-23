@@ -1,13 +1,13 @@
 import { mongooseConnection } from "@/lib/mongoose";
 import { Category } from "@/models/category";
-import { isAdminRequest } from "./auth/[...nextauth]";
 
 export default async function handler(request, response) {
   const { method } = request;
   await mongooseConnection();
 
-  // Check if the user is logged in
-  await isAdminRequest(request, response);
+  if (method === "GET") {
+    response.json(await Category.find().populate("parent"));
+  }
 
   if (method === "POST") {
     const { name, parentCategory, properties } = request.body;
@@ -19,10 +19,6 @@ export default async function handler(request, response) {
     });
 
     response.status(200).send(categoryDoc);
-  }
-
-  if (method === "GET") {
-    response.json(await Category.find().populate("parent"));
   }
 
   if (method === "PUT") {

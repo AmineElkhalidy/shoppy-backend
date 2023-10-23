@@ -9,15 +9,11 @@ import fs from "fs";
 // mimeTypes
 import mime from "mime-types";
 import { mongooseConnection } from "@/lib/mongoose";
-import { isAdminRequest } from "./auth/[...nextauth]";
 
 const bucketName = "shoppy-ecommerce";
 
 export default async function handler(request, response) {
   await mongooseConnection();
-
-  // Check if the user is logged in
-  await isAdminRequest(request, response);
 
   const form = new multiparty.Form();
   const { fields, files } = await new Promise((resolve, reject) => {

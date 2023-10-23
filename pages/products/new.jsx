@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 
-// Axios
-import axios from "axios";
-
-// Next
-import { useRouter } from "next/router";
-
 // Components
 import ProductForm from "@/components/ProductForm";
 

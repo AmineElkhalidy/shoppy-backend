@@ -3,9 +3,6 @@ import React, { useState, useEffect } from "react";
 // Axios
 import axios from "axios";
 
-// Next
-import Link from "next/link";
-
 // Toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -39,16 +36,14 @@ const Categories = () => {
 
   // Model state
   const [modalIsOpen, setIsOpen] = useState(false);
-
   useEffect(() => {
     fetchCategories();
   }, []);
 
-  const fetchCategories = async () => {
+  const fetchCategories = () => {
     setLoading(true);
-    await axios.get("/api/categories").then((response) => {
+    axios.get("/api/categories").then((response) => {
       setCategories(response.data);
-
       setLoading(false);
     });
   };
@@ -287,8 +282,8 @@ const Categories = () => {
           </div>
         </form>
 
-        <div className="p-4 bg-white w-full rounded-md">
-          <h2 className="text-2xl text-center font-semibold mb-6">
+        <div className="py-10 px-5 bg-white w-full rounded-md">
+          <h2 className="text-3xl text-center font-semibold mb-6">
             Categories List
           </h2>
 
