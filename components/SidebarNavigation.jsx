@@ -48,39 +48,9 @@ const links = [
     LinkIcon: <ShoppingCartIcon className="w-6 h-6 text-gray-400" />,
   },
   {
-    linkHref: "/customers",
-    linkTitle: "Customers",
+    linkHref: "/admins",
+    linkTitle: "Admins",
     LinkIcon: <UsersIcon className="w-6 h-6 text-gray-400" />,
-  },
-  {
-    linkHref: "/statistics",
-    linkTitle: "Statistics",
-    LinkIcon: <ChartBarIcon className="w-6 h-6 text-gray-400" />,
-  },
-  {
-    linkHref: "/reviews",
-    linkTitle: "Reviews",
-    LinkIcon: <ChatBubbleLeftEllipsisIcon className="w-6 h-6 text-gray-400" />,
-  },
-  {
-    linkHref: "/transactions",
-    linkTitle: "Transactions",
-    LinkIcon: <ForwardIcon className="w-6 h-6 text-gray-400" />,
-  },
-  {
-    linkHref: "/sellers",
-    linkTitle: "Sellers",
-    LinkIcon: <GlobeAltIcon className="w-6 h-6 text-gray-400" />,
-  },
-  {
-    linkHref: "/hot-offers",
-    linkTitle: "Hot Offers",
-    LinkIcon: <TagIcon className="w-6 h-6 text-gray-400" />,
-  },
-  {
-    linkHref: "/appearance",
-    linkTitle: "Appearance",
-    LinkIcon: <PencilIcon className="w-6 h-6 text-gray-400" />,
   },
   {
     linkHref: "/settigns",
@@ -113,14 +83,13 @@ const Item = ({ linkTitle, href, icon, selected, setSelected }) => {
 };
 
 const SidebarNavigation = ({ className, setIsCollapsed }) => {
-  // States
   const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } =
     useProSidebar();
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <aside className={`min-h-screen ${className}`}>
-      <Sidebar backgroundColor="#131921" className="h-full">
+    <aside className="min-h-screen">
+      <Sidebar backgroundColor="#131921" className={`h-screen ${className}`}>
         {/* Logo & Toggler */}
         <div
           className="p-4 border-b border-[#3B4149] mb-6"
@@ -136,7 +105,8 @@ const SidebarNavigation = ({ className, setIsCollapsed }) => {
                 className="inline-flex items-center gap-1 text-xl text-white"
                 onClick={() => collapseSidebar(!collapsed)}
               >
-                <ShoppingBagIcon className="w-8 h-8" /> Shoppy
+                <ShoppingBagIcon className="w-8 h-8" />{" "}
+                <span className="inline-block pt-1">Shoppy</span>
               </Link>
 
               <button>
