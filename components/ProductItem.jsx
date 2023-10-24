@@ -17,7 +17,7 @@ const ProductItem = ({
   return (
     <article className="p-4 border border-gray-400 w-[230px] rounded-md">
       <div className="w-full h-40 flex justify-center items-center mb-2 rounded-md overflow-hidden">
-        <img className="w-full h-full object-fill" src={images[0]} alt="" />
+        <img className="h-full object-cover" src={images[0]} alt="" />
       </div>
 
       <div className="">
