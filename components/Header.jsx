@@ -81,14 +81,14 @@ const Header = ({ session }) => {
               alt=""
             />{" "}
             {session.user?.name}
-            {showDropmenu ? (
+            {/* {showDropmenu ? (
               <ChevronUpIcon className="w-4 h-4 ml-2" />
             ) : (
               <ChevronDownIcon className="w-4 h-4 ml-2" />
-            )}
+            )} */}
           </div>
 
-          {showDropmenu && (
+          {/* {showDropmenu && (
             <ul className="absolute top-12 left-0 w-full bg-white p-4 rounded-md z-50 space-y-2">
               <li>
                 <Link
@@ -109,7 +109,7 @@ const Header = ({ session }) => {
                 </button>
               </li>
             </ul>
-          )}
+          )} */}
         </div>
       </div>
     </header>

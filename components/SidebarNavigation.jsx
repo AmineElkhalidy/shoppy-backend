@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { signOut } from "next-auth/react";
 
 // Icon
 import {
@@ -11,12 +12,14 @@ import {
   ShoppingCartIcon,
   UsersIcon,
   ChartBarIcon,
+  UserIcon,
   ChatBubbleLeftEllipsisIcon,
   ForwardIcon,
   GlobeAltIcon,
   PencilIcon,
   TagIcon,
   QueueListIcon,
+  ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/solid";
 
 // Sidebar
@@ -53,14 +56,25 @@ const links = [
     LinkIcon: <UsersIcon className="w-6 h-6 text-gray-400" />,
   },
   {
+    linkHref: "/profile",
+    linkTitle: "Profile",
+    LinkIcon: <UserIcon className="w-6 h-6 text-gray-400" />,
+  },
+  {
     linkHref: "/settigns",
     linkTitle: "Settigns",
     LinkIcon: <Cog6ToothIcon className="w-6 h-6 text-gray-400" />,
   },
+  {
+    linkHref: "#",
+    linkTitle: "Logout",
+    LinkIcon: <ArrowRightOnRectangleIcon className="w-6 h-6 text-gray-400" />,
+    button: true,
+  },
 ];
 
 // MenuItems components
-const Item = ({ linkTitle, href, icon, selected, setSelected }) => {
+const Item = ({ linkTitle, href, icon, button, selected, setSelected }) => {
   const router = useRouter();
   const currentRoute = router.pathname;
 
@@ -70,12 +84,19 @@ const Item = ({ linkTitle, href, icon, selected, setSelected }) => {
       onClick={() => setSelected(linkTitle)}
       icon={icon}
       component={
-        <Link
-          href={href}
-          className={currentRoute === href ? "bg-accentColor" : ""}
-        ></Link>
+        button ? (
+          <div onClick={() => signOut()}>
+            <button
+              className={` ${currentRoute === href ? "bg-accentColor" : ""}`}
+            ></button>
+          </div>
+        ) : (
+          <Link
+            href={href}
+            className={currentRoute === href ? "bg-accentColor" : ""}
+          ></Link>
+        )
       }
-      className=""
     >
       <p className="text-gray-200">{linkTitle}</p>
     </MenuItem>
@@ -129,6 +150,7 @@ const SidebarNavigation = ({ className, setIsCollapsed }) => {
               linkTitle={menuItem.linkTitle}
               href={menuItem.linkHref}
               icon={menuItem.LinkIcon}
+              button={menuItem.button}
               selected={selected}
               setSelected={setSelected}
             />

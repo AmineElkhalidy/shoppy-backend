@@ -210,16 +210,22 @@ const Categories = () => {
           </div>
 
           {/* Property Block */}
-          <div className="flex justify-between items-center px-6 mb-2">
-            <label htmlFor="product-properties mb-2">Properties</label>
-            <div className="">
-              <button
-                type="button"
-                onClick={addProperty}
-                className="px-10 py-[0.55rem] bg-mainColor text-white rounded-lg"
-              >
-                + Add new
-              </button>
+          <div className="">
+            <h3 className="font-semibold ml-6 mt-10">
+              Make sure to add additional properties to your category if it's
+              necessary
+            </h3>
+            <div className="flex justify-between items-center px-6 mb-2">
+              <label htmlFor="product-properties mb-2">Properties</label>
+              <div className="">
+                <button
+                  type="button"
+                  onClick={addProperty}
+                  className="px-10 py-[0.55rem] bg-mainColor text-white rounded-lg"
+                >
+                  + Add new
+                </button>
+              </div>
             </div>
           </div>
 
@@ -275,7 +281,7 @@ const Categories = () => {
             )}
             <button
               type="submit"
-              className="px-12 py-[0.55rem] bg-mainColor text-white rounded-lg"
+              className="px-12 py-[0.55rem] bg-mainColor text-white rounded-lg mt-10"
             >
               Save
             </button>
