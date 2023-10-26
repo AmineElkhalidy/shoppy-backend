@@ -299,8 +299,8 @@ const Categories = () => {
             </div>
           ) : (
             <div className="relative overflow-x-auto shadow-md sm:rounded-md">
-              <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+              <table className="w-full text-sm text-left text-gray-600 ">
+                <thead className="text-xs text-gray-700 uppercase bg-gray-50">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Category Name
@@ -325,11 +325,11 @@ const Categories = () => {
                   {categories.map((category) => (
                     <tr
                       key={category._id}
-                      className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                      className="bg-white border-b hover:bg-gray-50"
                     >
                       <th
                         scope="row"
-                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
                       >
                         {category.name}
                       </th>
@@ -341,7 +341,7 @@ const Categories = () => {
                       <td className="px-6 py-4 text-right space-x-6">
                         <button
                           onClick={() => editCategory(category)}
-                          className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          className="font-medium text-blue-600 hover:underline"
                         >
                           Edit
                         </button>

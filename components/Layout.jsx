@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
     return (
       <div className="bg-mainColor min-h-screen flex items-center justify-center">
         <button
-          className="bg-orange-500 py-4 px-6 text-white text-2xl rounded-lg inline-flex gap-3 items-center duration-300 hover:bg-orange-700"
+          className="bg-orange-500 py-4 px-6 text-white text-xl rounded-lg inline-flex gap-3 items-center duration-300 hover:bg-orange-700"
           onClick={() => signIn("google")}
         >
           <img
