@@ -11,13 +11,7 @@ import {
   ChevronRightIcon,
   ShoppingCartIcon,
   UsersIcon,
-  ChartBarIcon,
   UserIcon,
-  ChatBubbleLeftEllipsisIcon,
-  ForwardIcon,
-  GlobeAltIcon,
-  PencilIcon,
-  TagIcon,
   QueueListIcon,
   ArrowRightOnRectangleIcon,
 } from "@heroicons/react/24/solid";
