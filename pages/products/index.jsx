@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
-
-// Axois
 import axios from "axios";
-
-// React Modal
 import Modal from "react-modal";
-
-// Toast
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-// Next Components
 import Link from "next/link";
-
-// Components
 import LoadingSpinner from "@/components/LoadingSpinner";
 import ProductItem from "@/components/ProductItem";
+import Header from "@/components/Header";
+import SidebarNavigation from "@/components/SidebarNavigation";
+import { useSession } from "next-auth/react";
 
 const customStyles = {
   content: {
@@ -33,9 +26,9 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [targetedProduct, setTargetedProduct] = useState("");
-
-  // Model state
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const { data: session } = useSession();
 
   useEffect(() => {
     fetchProducts();
@@ -70,72 +63,79 @@ const Products = () => {
     });
 
   return (
-    <>
-      <div className="p-4">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-semibold">Products Grid</h2>
-          <Link
-            className="px-6 py-3 bg-mainColor text-white rounded-lg"
-            href="/products/new"
-          >
-            + Add new
-          </Link>
-        </div>
+    <div className="relative w-full bg-gray-200 min-h-screen flex">
+      <SidebarNavigation setIsCollapsed={setIsCollapsed} />
 
-        <div className="p-4 bg-white w-full flex flex-wrap justify-center gap-2 rounded-md">
-          {products.length === 0 && !loading && (
-            <p>No products to show, start adding some!</p>
-          )}
-          {loading ? (
-            <LoadingSpinner />
-          ) : (
-            products.map((product) => (
-              <ProductItem
-                key={product._id}
-                {...product}
-                setIsOpen={setIsOpen}
-                setTargetedProduct={setTargetedProduct}
-              />
-            ))
-          )}
-        </div>
-      </div>
-
-      {modalIsOpen && (
-        <div className="shadow-md">
-          <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={() => setIsOpen(false)}
-            style={customStyles}
-            contentLabel="Delete Modal"
-            ariaHideApp={false}
-          >
-            <div className="w-[450px] relative">
-              <div className="flex flex-col justify-center items-center">
-                <h2 className="text-lg text-mainColor mb-4">
-                  Do you really want to delete this product ?
-                </h2>
-
-                <div className="flex justify-center items-center gap-6">
-                  <button
-                    onClick={() => deleteProduct(targetedProduct)}
-                    className="bg-red-500 text-white h-8 w-24 rounded-md duration-300 hover:bg-red-600"
-                  >
-                    Yes
-                  </button>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="bg-mainColor text-white h-8 w-24 rounded-md"
-                  >
-                    No
-                  </button>
-                </div>
-              </div>
+      <div className={`grow ${isCollapsed ? "pl-[5rem]" : "pl-[15.5rem]"}`}>
+        <Header session={session} />
+        <>
+          <div className="p-4">
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-3xl font-semibold">Products Grid</h2>
+              <Link
+                className="px-6 py-3 bg-mainColor text-white rounded-lg"
+                href="/products/new"
+              >
+                + Add new
+              </Link>
             </div>
-          </Modal>
-        </div>
-      )}
-    </>
+
+            <div className="p-4 bg-white w-full flex flex-wrap justify-center gap-2 rounded-md">
+              {products.length === 0 && !loading && (
+                <p>No products to show, start adding some!</p>
+              )}
+              {loading ? (
+                <LoadingSpinner />
+              ) : (
+                products.map((product) => (
+                  <ProductItem
+                    key={product._id}
+                    {...product}
+                    setIsOpen={setIsOpen}
+                    setTargetedProduct={setTargetedProduct}
+                  />
+                ))
+              )}
+            </div>
+          </div>
+
+          {modalIsOpen && (
+            <div className="shadow-md">
+              <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={() => setIsOpen(false)}
+                style={customStyles}
+                contentLabel="Delete Modal"
+                ariaHideApp={false}
+              >
+                <div className="w-[450px] relative">
+                  <div className="flex flex-col justify-center items-center">
+                    <h2 className="text-lg text-mainColor mb-4">
+                      Do you really want to delete this product ?
+                    </h2>
+
+                    <div className="flex justify-center items-center gap-6">
+                      <button
+                        onClick={() => deleteProduct(targetedProduct)}
+                        className="bg-red-500 text-white h-8 w-24 rounded-md duration-300 hover:bg-red-600"
+                      >
+                        Yes
+                      </button>
+                      <button
+                        onClick={() => setIsOpen(false)}
+                        className="bg-mainColor text-white h-8 w-24 rounded-md"
+                      >
+                        No
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Modal>
+            </div>
+          )}
+        </>
+      </div>
+    </div>
   );
 };
 

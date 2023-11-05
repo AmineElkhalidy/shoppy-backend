@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-
-// Axios
 import axios from "axios";
-
-// Next
 import { useRouter } from "next/router";
-
-// Components
 import ProductForm from "@/components/ProductForm";
+import Header from "@/components/Header";
+import SidebarNavigation from "@/components/SidebarNavigation";
+import { useSession } from "next-auth/react";
 
 const EditProduct = () => {
   const router = useRouter();
   const { id } = router.query;
-
   const [productInfo, setProductInfo] = useState(null);
+  const { data: session } = useSession();
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   useEffect(() => {
     if (!id) {
@@ -26,12 +24,21 @@ const EditProduct = () => {
   }, [id]);
 
   return (
-    <div className="p-4">
-      <div className="text-center mb-6">
-        <h2 className="text-2xl font-semibold">Edit Product</h2>
-      </div>
+    <div className="relative w-full bg-gray-200 min-h-screen flex">
+      <SidebarNavigation setIsCollapsed={setIsCollapsed} />
 
-      {productInfo && <ProductForm {...productInfo} />}
+      <div className={`grow ${isCollapsed ? "pl-[5rem]" : "pl-[15.5rem]"}`}>
+        <Header session={session} />
+        <>
+          <div className="p-4">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-semibold">Edit Product</h2>
+            </div>
+
+            {productInfo && <ProductForm {...productInfo} />}
+          </div>
+        </>
+      </div>
     </div>
   );
 };

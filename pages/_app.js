@@ -1,18 +1,7 @@
 import "@/styles/globals.css";
-
-// Session Provider
 import { SessionProvider } from "next-auth/react";
-
-// Pro sidebar
 import { ProSidebarProvider } from "react-pro-sidebar";
-
-// Next
 import Head from "next/head";
-
-// Components
-import Layout from "@/components/Layout";
-
-// Toast
 import { ToastContainer } from "react-toastify";
 
 export default function App({
@@ -27,10 +16,8 @@ export default function App({
 
       <SessionProvider session={session}>
         <ProSidebarProvider>
-          <Layout>
-            <Component {...pageProps} />
-            <ToastContainer />
-          </Layout>
+          <Component {...pageProps} />
+          <ToastContainer />
         </ProSidebarProvider>
       </SessionProvider>
     </>
