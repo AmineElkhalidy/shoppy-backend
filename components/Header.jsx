@@ -77,10 +77,10 @@ const Header = ({ session }) => {
           >
             <img
               className="w-7 h-7 rounded-full"
-              src={session.user.image}
+              src={session ? session.user.image : ""}
               alt=""
             />{" "}
-            {session.user?.name}
+            {session ? session.user?.name : "John Doe"}
             {/* {showDropmenu ? (
               <ChevronUpIcon className="w-4 h-4 ml-2" />
             ) : (
