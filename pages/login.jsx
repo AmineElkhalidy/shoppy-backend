@@ -10,8 +10,8 @@ const Login = () => {
   const [show, setShow] = React.useState(false);
 
   return (
-    <div className="bg-mainColor min-h-screen grid lg:grid-cols-2">
-      <div className="hidden lg:block ">
+    <div className="bg-mainColor h-screen grid lg:grid-cols-2">
+      <div className="hidden lg:block">
         <div className="h-full flex flex-col justify-center items-center">
           <div className="text-white flex items-center gap-5">
             <ShoppingBagIcon className="w-20 h-20" />
@@ -22,6 +22,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+
       <div className="w-full bg-white p-10">
         <h1 className="text-3xl font-semibold">
           Welcome Back <br />
