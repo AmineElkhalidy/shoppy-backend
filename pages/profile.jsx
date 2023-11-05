@@ -26,10 +26,7 @@ const Profile = () => {
             </div>
 
             <div className="mt-10">
-              <div
-                className="flex flex-col gap-2"
-                onClick={() => setShowDropmenu(!showDropmenu)}
-              >
+              <div className="flex flex-col gap-2">
                 <img
                   className="w-20 h-20 rounded-full"
                   src={session ? session.user.image : ""}
@@ -40,7 +37,9 @@ const Profile = () => {
                   <p className="text-lg font-medium">
                     {session ? session.user?.name : "John Doe"}
                   </p>
-                  <p className="text-lg">{session.user?.email}</p>
+                  <p className="text-lg">
+                    {session ? session.user?.email : "johndoe@gmail.com"}
+                  </p>
                 </div>
               </div>
             </div>
