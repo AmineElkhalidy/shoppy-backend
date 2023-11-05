@@ -6,11 +6,14 @@ import {
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
-const Login = () => {
+const Login = ({ isDemoMode }) => {
   const [show, setShow] = React.useState(false);
+  const [demo, setDemo] = React.useState(false);
+
+  isDemoMode(demo);
 
   return (
-    <div className="bg-mainColor h-screen grid lg:grid-cols-2">
+    <div className="bg-mainColor min-h-screen grid lg:grid-cols-2">
       <div className="hidden lg:block">
         <div className="h-full flex flex-col justify-center items-center">
           <div className="text-white flex items-center gap-5">
@@ -79,7 +82,10 @@ const Login = () => {
             <button className="w-full py-4 bg-orange-600 rounded-md text-white  text-lg font-semibold duration-300 hover:bg-orange-700">
               Login
             </button>
-            <button className="w-full py-4 bg-mainColor rounded-md text-white text-lg font-semibold">
+            <button
+              onClick={() => setDemo(true)}
+              className="w-full py-4 bg-mainColor rounded-md text-white text-lg font-semibold"
+            >
               Demo
             </button>
           </div>

@@ -9,7 +9,7 @@ import Link from "next/link";
 const SignUp = () => {
   const [show, setShow] = React.useState(false);
   return (
-    <div className="bg-mainColor h-screen grid lg:grid-cols-2">
+    <div className="bg-mainColor min-h-screen grid lg:grid-cols-2">
       <div className="hidden lg:block ">
         <div className="h-full flex flex-col justify-center items-center">
           <div className="text-white flex items-center gap-5">

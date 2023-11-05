@@ -8,11 +8,16 @@ export default function Home() {
   // rename data to session
   const { data: session } = useSession();
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [demoMode, setDemoMode] = useState(false);
+
+  const isDemoMode = (arg) => {
+    setDemoMode(arg);
+  };
 
   return (
     <>
-      {!session ? (
-        <Login />
+      {!demoMode ? (
+        <Login isDemoMode={isDemoMode} />
       ) : (
         <div className="relative w-full bg-gray-200 min-h-screen flex">
           <SidebarNavigation setIsCollapsed={setIsCollapsed} />

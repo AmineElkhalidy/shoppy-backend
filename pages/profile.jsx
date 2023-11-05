@@ -20,7 +20,7 @@ const Profile = () => {
               <h3 className="text-2xl">
                 Welcome on Board,{" "}
                 <span className="text-orange-500 font-medium">
-                  {session?.user?.name}
+                  {session ? session?.user?.name : "John Doe"}
                 </span>
               </h3>
             </div>
@@ -32,12 +32,14 @@ const Profile = () => {
               >
                 <img
                   className="w-20 h-20 rounded-full"
-                  src={session.user.image}
+                  src={session ? session.user.image : ""}
                   alt=""
                 />
 
                 <div className="">
-                  <p className="text-lg font-medium">{session.user?.name}</p>
+                  <p className="text-lg font-medium">
+                    {session ? session.user?.name : "John Doe"}
+                  </p>
                   <p className="text-lg">{session.user?.email}</p>
                 </div>
               </div>
