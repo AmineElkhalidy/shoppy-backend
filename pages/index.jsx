@@ -10,14 +10,14 @@ export default function Home() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [demoMode, setDemoMode] = useState(false);
 
-  const isDemoMode = (arg) => {
+  const isDemoModeHandler = (arg) => {
     setDemoMode(arg);
   };
 
   return (
     <>
       {!demoMode ? (
-        <Login isDemoMode={isDemoMode} />
+        <Login isDemoMode={isDemoModeHandler} />
       ) : (
         <div className="relative w-full bg-gray-200 min-h-screen flex">
           <SidebarNavigation setIsCollapsed={setIsCollapsed} />
