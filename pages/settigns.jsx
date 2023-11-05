@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react";
 
 const Settigns = () => {
   const { data: session } = useSession();
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = React.useState(false);
 
   return (
     <div className="relative w-full bg-gray-200 min-h-screen flex">
