@@ -2,6 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import SidebarNavigation from "@/components/SidebarNavigation";
 import { useSession } from "next-auth/react";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 const Profile = () => {
   const { data: session } = useSession();
@@ -27,15 +28,19 @@ const Profile = () => {
 
             <div className="mt-10">
               <div className="flex flex-col gap-2">
-                <img
-                  className="w-20 h-20 rounded-full"
-                  src={session ? session.user.image : ""}
-                  alt=""
-                />
+                {session ? (
+                  <img
+                    className="w-20 h-20 rounded-full"
+                    src={session ? session.user.image : ""}
+                    alt=""
+                  />
+                ) : (
+                  <UserCircleIcon className="w-16 h-16" />
+                )}
 
                 <div className="">
                   <p className="text-lg font-medium">
-                    {session ? session.user?.name : "John Doe"}
+                    {session & session ? session.user?.name : "John Doe"}
                   </p>
                   <p className="text-lg">
                     {session ? session.user?.email : "johndoe@gmail.com"}

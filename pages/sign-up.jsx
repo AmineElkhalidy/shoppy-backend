@@ -25,7 +25,11 @@ const SignUp = () => {
       <div className="w-full bg-white p-10">
         <h1 className="text-4xl text-orange-600">Shoppy</h1>
         <h2 className="text-3xl font-semibold">Create Account</h2>
-        <p className="my-5 text-lg font-light">Glad to have you onboard</p>
+        <p className="my-5 text-lg font-light">
+          Glad to have you onboard, create an account
+          <br />
+          Be one of the Shoppy family!
+        </p>
         <form>
           <div>
             <input

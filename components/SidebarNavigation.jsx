@@ -25,7 +25,7 @@ import { useRouter } from "next/router";
 
 const links = [
   {
-    linkHref: "/",
+    linkHref: "/dashboard",
     linkTitle: "Dashboard",
     LinkIcon: <HomeIcon className="w-6 h-6 text-gray-400" />,
   },
@@ -60,7 +60,7 @@ const links = [
     LinkIcon: <Cog6ToothIcon className="w-6 h-6 text-gray-400" />,
   },
   {
-    linkHref: "#",
+    linkHref: "/",
     linkTitle: "Logout",
     LinkIcon: <ArrowRightOnRectangleIcon className="w-6 h-6 text-gray-400" />,
     button: true,
@@ -79,7 +79,12 @@ const Item = ({ linkTitle, href, icon, button, selected, setSelected }) => {
       icon={icon}
       component={
         button ? (
-          <div onClick={() => signOut()}>
+          <div
+            onClick={() => {
+              signOut();
+              router.replace("/");
+            }}
+          >
             <button
               className={` ${currentRoute === href ? "bg-accentColor" : ""}`}
             ></button>

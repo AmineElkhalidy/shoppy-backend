@@ -8,6 +8,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
   ArrowRightOnRectangleIcon,
+  UserCircleIcon,
 } from "@heroicons/react/24/solid";
 import { UserIcon } from "@heroicons/react/24/outline";
 
@@ -72,20 +73,19 @@ const Header = ({ session }) => {
 
         <div className="relative">
           <div
-            className="p-2 cursor-pointer flex justify-center items-center gap-2 text-gray-400 bg-gray-800 rounded-md"
+            className="p-2 px-4 cursor-pointer flex justify-center items-center gap-2 text-gray-400 bg-gray-800 rounded-md"
             onClick={() => setShowDropmenu(!showDropmenu)}
           >
-            <img
-              className="w-7 h-7 rounded-full"
-              src={session ? session.user.image : ""}
-              alt=""
-            />{" "}
-            {session ? session.user?.name : "John Doe"}
-            {/* {showDropmenu ? (
-              <ChevronUpIcon className="w-4 h-4 ml-2" />
+            {session ? (
+              <img
+                className="w-7 h-7 rounded-full"
+                src={session ? session.user.image : ""}
+                alt=""
+              />
             ) : (
-              <ChevronDownIcon className="w-4 h-4 ml-2" />
-            )} */}
+              <UserCircleIcon className="w-8 h-8" />
+            )}{" "}
+            {session ? session.user?.name : "John Doe"}
           </div>
 
           {/* {showDropmenu && (
