@@ -30,11 +30,12 @@ const SignUp = () => {
           <br />
           Be one of the Shoppy family!
         </p>
+
         <form>
           <div>
             <input
               type="text"
-              className=" w-full py-4"
+              className=" w-full py-4 outline-none"
               placeholder="Your Full Name"
             />
           </div>
@@ -42,7 +43,7 @@ const SignUp = () => {
           <div>
             <input
               type="text"
-              className="mt-3 w-full py-4"
+              className="mt-3 w-full py-4 outline-none"
               placeholder="Your Email"
             />
           </div>

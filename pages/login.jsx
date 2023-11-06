@@ -35,11 +35,12 @@ const Login = ({ isDemoMode }) => {
           Good to see you again!
           <br /> Please login to your account
         </p>
-        <form className="">
+
+        <form>
           <div>
             <input
               type="text"
-              className="w-full py-4"
+              className="w-full py-4 outline-none"
               placeholder="Your Email"
             />
           </div>
