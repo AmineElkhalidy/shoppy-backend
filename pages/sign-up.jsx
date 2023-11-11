@@ -10,18 +10,6 @@ const SignUp = () => {
   const [show, setShow] = React.useState(false);
   return (
     <div className="bg-mainColor min-h-screen grid lg:grid-cols-2">
-      <div className="hidden lg:block ">
-        <div className="h-full flex flex-col justify-center items-center">
-          <div className="text-white flex items-center gap-5">
-            <ShoppingBagIcon className="w-20 h-20" />
-            <h2 className="text-7xl font-semibold">Shoppy</h2>
-          </div>
-          <p className="text-gray-300 text-2xl mt-4">
-            Your best <span className="text-orange-600">shopping partner</span>
-          </p>
-        </div>
-      </div>
-
       <div className="w-full bg-white p-10">
         <h1 className="text-4xl text-orange-600">Shoppy</h1>
         <h2 className="text-3xl font-semibold">Create Account</h2>
@@ -118,6 +106,18 @@ const SignUp = () => {
             </Link>
           </p>
         </form>
+      </div>
+
+      <div className="hidden lg:block ">
+        <div className="h-full flex flex-col justify-center items-center">
+          <div className="text-white flex items-center gap-5">
+            <ShoppingBagIcon className="w-20 h-20" />
+            <h2 className="text-7xl font-semibold">Shoppy</h2>
+          </div>
+          <p className="text-gray-300 text-2xl mt-4">
+            Your best <span className="text-orange-600">shopping partner</span>
+          </p>
+        </div>
       </div>
     </div>
   );
