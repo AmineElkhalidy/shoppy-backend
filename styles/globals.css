@@ -38,6 +38,10 @@ input {
   @apply border border-gray-400 p-2 rounded-md;
 }
 
+input[type="checkbox"]:checked {
+  @apply bg-orange-600;
+}
+
 input:focus {
   @apply border-blue-400;
 }
